@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A beautiful, modern Snake Game with pastel aesthetics and smooth animations. Play the classic snake game right in your browser!">
+  <title>Snake Game 🐍✨</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Background decorative blobs -->
+  <div class="bg-blob blob-1"></div>
+  <div class="bg-blob blob-2"></div>
+  <div class="bg-blob blob-3"></div>
+
+  <div class="container">
+    <!-- Header -->
+    <header id="game-header">
+      <h1>Snake Game <span class="emoji-bounce">🐍</span><span class="emoji-sparkle">✨</span></h1>
+      <p class="subtitle">Collect fruits & grow your snake!</p>
+    </header>
+
+    <!-- Scoreboard -->
+    <div id="scoreboard">
+      <div class="score-card" id="current-score-card">
+        <span class="score-label">Score</span>
+        <span class="score-value" id="current-score">0</span>
+      </div>
+      <div class="score-card" id="high-score-card">
+        <span class="score-label">Best</span>
+        <span class="score-value" id="high-score">0</span>
+      </div>
+    </div>
+
+    <!-- Controls -->
+    <div id="controls">
+      <button id="start-btn" class="btn btn-primary">
+        <span class="btn-icon">▶</span> Start Game
+      </button>
+      <button id="pause-btn" class="btn btn-secondary" disabled>
+        <span class="btn-icon">⏸</span> Pause
+      </button>
+      <div class="speed-selector">
+        <label for="speed-select">Speed:</label>
+        <select id="speed-select">
+          <option value="slow">🐢 Slow</option>
+          <option value="medium" selected>🐇 Medium</option>
+          <option value="fast">🚀 Fast</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Game Area -->
+    <div id="game-wrapper">
+      <canvas id="game-canvas"></canvas>
+      <!-- Overlay for start / game over -->
+      <div id="game-overlay" class="overlay visible">
+        <div class="overlay-content">
+          <div class="overlay-emoji">🐍</div>
+          <h2>Ready to Play?</h2>
+          <p>Use <kbd>Arrow Keys</kbd> or <kbd>WASD</kbd> to move</p>
+          <button id="overlay-start-btn" class="btn btn-primary btn-large">
+            <span class="btn-icon">▶</span> Start Game
+          </button>
+        </div>
+      </div>
+      <!-- Game Over Overlay -->
+      <div id="gameover-overlay" class="overlay">
+        <div class="overlay-content gameover-content">
+          <div class="overlay-emoji">😵</div>
+          <h2>Game Over!</h2>
+          <p class="gameover-score">Score: <span id="final-score">0</span></p>
+          <p class="gameover-best" id="new-best" style="display:none;">🎉 New High Score!</p>
+          <button id="restart-btn" class="btn btn-primary btn-large">
+            <span class="btn-icon">🔄</span> Play Again
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Controls -->
+    <div id="mobile-controls">
+      <div class="dpad">
+        <button class="dpad-btn dpad-up" data-direction="up" aria-label="Move Up">▲</button>
+        <div class="dpad-middle">
+          <button class="dpad-btn dpad-left" data-direction="left" aria-label="Move Left">◀</button>
+          <div class="dpad-center"></div>
+          <button class="dpad-btn dpad-right" data-direction="right" aria-label="Move Right">▶</button>
+        </div>
+        <button class="dpad-btn dpad-down" data-direction="down" aria-label="Move Down">▼</button>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <p>Press <kbd>Space</kbd> to pause · <kbd>Arrow Keys</kbd> / <kbd>WASD</kbd> to move</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
